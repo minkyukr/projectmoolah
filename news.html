@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>News</title>
+</head>
+
+<body>
+  <!-- Retrieved data will be dumped here -->
+
+    <div class="title"></div>
+    <div class="url"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    var APIKey = "2bc1d4a81a2d4c66923810a1e539ad0d";
+    var queryURL = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=" + APIKey;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function(response) {
+        // Transfer content to HTML
+        $(".title").text("Title: " + response.articles[0].title);
+        $(".url").text(response.articles[0].url);
+
+                    // Log the data in the console as well
+                    console.log("tile " + response.articles.content);
+                    console.log("url: " + response.main.author);
+    });
+
+
+
+</script>
+</body>
+
+</html>

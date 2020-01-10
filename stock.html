@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Stock</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <!-- change the width and height for design purpose. -->
+    <h1>Stock Search</h1>
+
+    <!-- This form will be where users input symbol and get recommendation -->
+    <form id="stock-form">
+      <label for="stock-input">Search with stock symbol</label>
+      <input type="text" id="stock-input"><br>
+
+      <!-- This button will trigger our AJAX call -->
+      <input id="find-stock" type="submit" value="Stock Search" class="btn btn-primary">
+    </form>
+
+    <!-- We'll be dumping our JSON contents in here -->
+    <div id="stock-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // This .on("click") function will trigger the AJAX Call
+        $("#find-stock").on("click", function(event) {
+
+        // event.preventDefault() can be used to prevent an event's default behavior.
+        // Here, it prevents the submit button from trying to submit a form when clicked
+        event.preventDefault();
+
+        // Here we grab the text from the input box
+        var stock = $("#stock-input").val();
+
+        // Here we construct our URL
+        var queryURL = "https://finnhub.io/api/v1/stock/recommendation?symbol=" + stock + "&token=bobuh4frh5rbii6abhug";
+
+        // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
+        // and display it in the div with an id of movie-view
+
+        // ------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
+
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+            $("#stock-view").text(JSON.stringify(response));
+        });
+
+        // -----------------------------------------------------------------------
+
+    });
+    </script>
+    </div>
+</body>
+
+</html>
