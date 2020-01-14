@@ -11,6 +11,7 @@
 
     <div class="title"></div>
     <div class="url"></div>
+    <div class="description"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -26,6 +27,8 @@
         // Transfer content to HTML
         $(".title").text("Title: " + response.articles[0].title);
         $(".url").text(response.articles[0].url);
+        $(".description").text(response.articles[0].description);
+
 
                     // Log the data in the console as well
                     console.log("tile " + response.articles.content);
