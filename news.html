@@ -8,7 +8,9 @@
 
 <body>
   <!-- Retrieved data will be dumped here -->
-  <div class= "article-section"></div>
+  <div class= "article-section">
+
+  </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -23,12 +25,17 @@
     .then(function(response) {
         // Transfer content to HTML
         for (var i = 0; i < 3; i++) {
-
         var article = response.articles[i];
         console.log(article)
+        
+        var $articleList = $("<ul>");
+        $articleList.addClass("list-group");
+        $("#article-section").append($articleList); 
+        //added the newley created element to the DOM
+
+        var title = article.title;
+        var $articleListItem = $("<li class='list-group-item articleTitle'>");
     }})
-
-
 
 </script>
 </body>
