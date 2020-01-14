@@ -8,8 +8,12 @@
 
 <body>
   <!-- Retrieved data will be dumped here -->
-  <div class= "article-section"></div>
 
+  <div class="title"></div>
+  <div class="url"></div>
+  <div class="description"></div>
+
+</div>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
     var APIKey = "2bc1d4a81a2d4c66923810a1e539ad0d";
@@ -22,11 +26,15 @@
     // We store all of the retrieved data inside of an object called "response"
     .then(function(response) {
         // Transfer content to HTML
-        for (var i = 0; i < 3; i++) {
+        $(".title").text("Title: " + response.articles[1].title);
+        $(".url").text(response.articles[1].url);
+        $(".description").text(response.articles[1].description);
 
-        var article = response.articles[i];
-        console.log(article)
-    }})
+
+                    // Log the data in the console as well
+                    console.log("tile " + response.articles.content);
+                    console.log("url: " + response.main.author);
+    });
 
 
 
