@@ -8,7 +8,7 @@
 
 <body>
   <!-- Retrieved data will be dumped here -->
-  <div id= "article-section">
+  <div class= "col-12 financeNews-col">
 
   </div>
 
@@ -33,17 +33,17 @@
 
         console.log("title is: ", title);
 
-        var $articleTitle = $(`<h1> Title: ${title}</h1>`);
+        var $articleTitle = $(`<h7> Title: ${title}</h7> <br>`);
         $articleTitle.addClass("list-group");
-        $("#article-section").append($articleTitle); 
+        $(".financeNews-col").append($articleTitle); 
 
-        var $articleDescription = $(`<h3>${description}</h3>`);
+        var $articleDescription = $(`<h8> Description: ${description}</h8> <br>`);
         $articleDescription.addClass("list-group");
-        $("#article-section").append($articleDescription);
+        $(".financeNews-col").append($articleDescription);
 
-        var $articleURL = $(`<h3> ${url}</a>`);
+        var $articleURL = $(`<h8> ${url}</h8> <br>`);
         $articleURL.addClass("list-group");
-        $("#article-section").append($articleURL);
+        $(".financeNews-col").append($articleURL);
         
     }})
 
